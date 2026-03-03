@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PragatiPortfolio">
+    <title>Pragati Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['var(--font-heading-name)', 'sans-serif'],
+            body: ['var(--font-body-name)', 'sans-serif'],
+          },
+          colors: {
+            primary: { 50:'#faf5ff',100:'#f3e8ff',200:'#e9d5ff',300:'#d8b4fe',400:'#c084fc',500:'#a855f7',600:'#9333ea',700:'#7e22ce',800:'#6b21a8',900:'#581c87' },
+            secondary: { 50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a' },
+            tertiary: { 50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',400:'#34d399',500:'#10b981',600:'#059669',700:'#047857',800:'#065f46',900:'#064e3b' },
+            neutral: { 50:'#f9fafb',100:'#f3f4f6',200:'#e5e7eb',300:'#d1d5db',400:'#9ca3af',500:'#6b7280',600:'#4b5563',700:'#374151',800:'#1f2937',900:'#111827' },
+            background: { 50:'#ffffff',100:'#f8fafc',200:'#f1f5f9' }
+          },
+          spacing: { base: 'var(--space-base)' },
+          borderRadius: { small: 'var(--radius-small)', large: 'var(--radius-large)' },
+          boxShadow: { custom: 'var(--shadow-custom)', 'custom-hover': 'var(--shadow-custom-hover)' },
+        }
+      }
+    }
+  
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#007bff">
+    <meta name="color-scheme" content="light dark">
+    <meta name="author" content="">
+</head>
+<body>
+    
+
+  <!-- Scroll Progress -->
+  <div id="scroll-progress" style="width:0%"></div>
+
+  <!-- Scroll to Top -->
+  <button id="scroll-top" class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-primary-600 hover:bg-primary-700 text-white rounded-large shadow-custom flex items-center justify-center transition-colors glow-anim">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </button>
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-neutral-200 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center gap-2">
+          <div class="w-9 h-9 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-large flex items-center justify-center shadow-sm">
+            <span class="text-white font-heading font-black text-sm">PG</span>
+          </div>
+          <span class="font-heading text-lg font-bold gradient-text">Pragati Gunai</span>
+        </div>
+        <div class="hidden md:flex items-center space-x-1">
+          <a href="#about" class="nav-link px-3 py-2 text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors">About</a>
+          <a href="#skills" class="nav-link px-3 py-2 text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors">Skills</a>
+          <a href="#experience" class="nav-link px-3 py-2 text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors">Experience</a>
+          <a href="#projects" class="nav-link px-3 py-2 text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors">Projects</a>
+          <a href="#education" class="nav-link px-3 py-2 text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors">Education</a>
+          <a href="#services" class="nav-link px-3 py-2 text-sm font-medium text-neutral-600 hover:text-primary-600 transition-colors">Services</a>
+          <a href="#contact" class="ml-2 px-5 py-2 text-sm font-bold bg-gradient-to-r from-primary-600 to-secondary-600 text-white rounded-small hover:opacity-90 transition-all hover:scale-105 shadow-sm">Hire Me</a>
+        </div>
+        <button class="md:hidden text-neutral-600 hover:text-primary-600 transition-colors" id="mobile-menu-btn">
+          <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
+        </button>
+      </div>
+    </div>
+    <div class="md:hidden bg-white border-t border-neutral-100 px-4" id="mobile-menu">
+      <div class="py-4 space-y-1">
+        <a href="#about" class="block px-3 py-2 text-sm font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-small transition-colors">About</a>
+        <a href="#skills" class="block px-3 py-2 text-sm font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-small transition-colors">Skills</a>
+        <a href="#experience" class="block px-3 py-2 text-sm font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-small transition-colors">Experience</a>
+        <a href="#projects" class="block px-3 py-2 text-sm font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-small transition-colors">Projects</a>
+        <a href="#education" class="block px-3 py-2 text-sm font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-small transition-colors">Education</a>
+        <a href="#services" class="block px-3 py-2 text-sm font-medium text-neutral-700 hover:text-primary-600 hover:bg-primary-50 rounded-small transition-colors">Services</a>
+        <a href="#contact" class="block px-3 py-2 text-sm font-bold text-primary-600">Hire Me</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-bg relative overflow-hidden py-20 md:py-28">
+    <!-- Particles -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="particle w-2 h-2 bg-primary-400/40" style="left:8%;top:80%;animation-duration:7s;"></div>
+      <div class="particle w-3 h-3 bg-secondary-400/30" style="left:22%;top:85%;animation-duration:9s;animation-delay:1s;"></div>
+      <div class="particle w-2 h-2 bg-tertiary-400/30" style="left:55%;top:88%;animation-duration:6s;animation-delay:2s;"></div>
+      <div class="particle w-3 h-3 bg-primary-300/25" style="left:75%;top:75%;animation-duration:8s;animation-delay:0.5s;"></div>
+      <div class="particle w-2 h-2 bg-white/20" style="left:90%;top:82%;animation-duration:5s;animation-delay:3s;"></div>
+      <div class="particle w-4 h-4 bg-secondary-300/20" style="left:40%;top:90%;animation-duration:10s;animation-delay:1.5s;"></div>
+      <div class="blob absolute w-80 h-80 bg-primary-800/30 rounded-full" style="top:-100px;right:-80px;"></div>
+      <div class="blob absolute w-56 h-56 bg-secondary-900/20 rounded-full" style="bottom:20px;left:-60px;animation-delay:4s;"></div>
+      <!-- Grid lines -->
+      <div class="absolute inset-0 opacity-5" style="background-image:linear-gradient(rgba(255,255,255,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.1) 1px,transparent 1px);background-size:60px 60px;"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center gap-14">
+        <!-- Left Content -->
+        <div class="flex-1 text-center lg:text-left">
+          <div class="hero-1 inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-xs font-semibold px-4 py-2 rounded-full mb-6">
+            <span class="w-2 h-2 bg-tertiary-400 rounded-full dot-glow"></span>
+            Available for Opportunities
+          </div>
+          <div class="hero-2">
+            <span class="code-tag mb-3 inline-block"><developer></developer></span>
+            <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-2">
+              Hi, I'm <span class="gradient-text neon-text">Pragati Gunai</span>
+            </h1>
+            <h2 class="font-heading text-2xl md:text-3xl font-bold text-white/80 mb-2">
+              <span id="typewriter"></span><span class="cursor-blink text-primary-300">|</span>
+            </h2>
+            <span class="code-tag mt-1 inline-block"></span>
+          </div>
+          <p class="text-white/70 text-base leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0 mt-5 hero-3">
+            Creative Full Stack Developer with expertise in building scalable, responsive web applications using modern front-end and back-end technologies, cloud integration, and DevOps practices.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start hero-4">
+            <a href="#projects" class="px-8 py-4 bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-bold rounded-small transition-all hover:scale-105 shadow-custom flex items-center justify-center gap-2 group">
+              <i data-lucide="folder-open" class="w-5 h-5 icon-spin"></i>
+              View My Work
+            </a>
+            <a href="#contact" class="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/25 text-white font-bold rounded-small transition-all hover:scale-105 flex items-center justify-center gap-2 backdrop-blur-sm">
+              <i data-lucide="send" class="w-5 h-5"></i>
+              Get In Touch
+            </a>
+          </div>
+          <!-- Quick stats -->
+          <div class="flex flex-wrap gap-6 justify-center lg:justify-start mt-10 hero-5">
+            <div class="text-center">
+              <div class="font-heading text-3xl font-black text-white"><span class="counter" data-target="4">0</span>+</div>
+              <div class="text-white/60 text-xs font-medium">Years Exp.</div>
+            </div>
+            <div class="w-px bg-white/20 self-stretch"></div>
+            <div class="text-center">
+              <div class="font-heading text-3xl font-black text-white"><span class="counter" data-target="15">0</span>+</div>
+              <div class="text-white/60 text-xs font-medium">Projects</div>
+            </div>
+            <div class="w-px bg-white/20 self-stretch"></div>
+            <div class="text-center">
+              <div class="font-heading text-3xl font-black text-white"><span class="counter" data-target="3">0</span></div>
+              <div class="text-white/60 text-xs font-medium">Companies</div>
+            </div>
+            <div class="w-px bg-white/20 self-stretch"></div>
+            <div class="text-center">
+              <div class="font-heading text-3xl font-black text-white"><span class="counter" data-target="2">0</span></div>
+              <div class="text-white/60 text-xs font-medium">Degrees</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Visual -->
+        <div class="flex-shrink-0 relative hero-img">
+          <div class="relative w-72 h-72 md:w-80 md:h-80 flex items-center justify-center">
+            <!-- Rotating ring -->
+            <div class="ring-rotate absolute inset-0 rounded-full border-2 border-dashed border-primary-500/30"></div>
+            <div class="absolute inset-4 rounded-full border border-secondary-500/20"></div>
+            <!-- Orbit icons -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="orbit w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-700 rounded-large flex items-center justify-center shadow-lg">
+                <i data-lucide="code-2" class="w-5 h-5 text-white"></i>
+              </div>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="orbit2 w-10 h-10 bg-gradient-to-br from-secondary-500 to-secondary-700 rounded-large flex items-center justify-center shadow-lg">
+                <i data-lucide="database" class="w-5 h-5 text-white"></i>
+              </div>
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="orbit3 w-10 h-10 bg-gradient-to-br from-tertiary-500 to-tertiary-700 rounded-large flex items-center justify-center shadow-lg">
+                <i data-lucide="cloud" class="w-5 h-5 text-white"></i>
+              </div>
+            </div>
+            <!-- Center profile -->
+            <div class="relative z-10 w-40 h-40 rounded-full border-4 border-white/20 float-anim pulse-ring overflow-hidden shadow-custom">
+              <img src="image/bg_1.jpg" alt="Pragati Gunai" class="w-full h-full object-cover">
+            </div>
+          </div>
+          <!-- Floating cards -->
+          <div class="float2 absolute -left-20 top-6 bg-white rounded-large p-3 shadow-custom border border-neutral-100 flex items-center gap-3 min-w-max">
+            <div class="w-8 h-8 bg-primary-100 rounded-small flex items-center justify-center">
+              <i data-lucide="code-2" class="w-4 h-4 text-primary-600"></i>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-neutral-900">Full Stack Dev</p>
+              <p class="text-xs text-neutral-500">4+ Years</p>
+            </div>
+          </div>
+          <div class="float-anim absolute -right-16 bottom-10 bg-white rounded-large p-3 shadow-custom border border-neutral-100 flex items-center gap-3 min-w-max" style="animation-delay:1.5s;">
+            <div class="w-8 h-8 bg-tertiary-100 rounded-small flex items-center justify-center">
+              <i data-lucide="graduation-cap" class="w-4 h-4 text-tertiary-600"></i>
+            </div>
+            <div>
+              <p class="text-xs font-bold text-neutral-900">M.S. Computer Science</p>
+              <p class="text-xs text-neutral-500">Univ. of Michigan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-background-100 border-b border-neutral-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-14 items-center">
+        <div class="reveal-left">
+          <span class="text-sm font-bold text-primary-600 uppercase tracking-widest">About Me</span>
+          <h2 class="font-heading text-4xl font-black text-neutral-900 mt-2 mb-4">Crafting Software Developer<br><span class="gradient-text">Experiences</span></h2>
+          <div class="h-1.5 w-20 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full mb-6 title-line"></div>
+          <p class="text-neutral-600 leading-relaxed mb-5">I'm a passionate Full Stack Developer currently based in Farmington Hills, Michigan. With over 4 years of experience across multiple industries, I specialize in building scalable, high-performance web applications that deliver exceptional user experiences.</p>
+          <p class="text-neutral-600 leading-relaxed mb-8">My expertise spans the full development lifecycle from crafting pixel-perfect UIs with WordPress and modern CSS, to architecting robust back-end systems with Figma, Angular, PHP, C# and cloud-native AWS solutions. I'm driven by clean code, agile practices, and continuous learning.</p>
+          <div class="grid grid-cols-2 gap-4 mb-8">
+            <div class="flex items-center gap-3 group">
+              <div class="w-9 h-9 bg-primary-100 rounded-large flex items-center justify-center group-hover:bg-primary-600 transition-all duration-300 shrink-0">
+                <i data-lucide="map-pin" class="w-4 h-4 text-primary-600 group-hover:text-white transition-colors"></i>
+              </div>
+              <div>
+                <p class="text-xs text-neutral-400 font-medium">Location</p>
+                <p class="text-sm font-semibold text-neutral-800">Farmington Hills, MI</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 group">
+              <div class="w-9 h-9 bg-secondary-100 rounded-large flex items-center justify-center group-hover:bg-secondary-600 transition-all duration-300 shrink-0">
+                <i data-lucide="mail" class="w-4 h-4 text-secondary-600 group-hover:text-white transition-colors"></i>
+              </div>
+              <div>
+                <p class="text-xs text-neutral-400 font-medium">Email</p>
+                <p class="text-sm font-semibold text-neutral-800">pragatig@umich.edu</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 group">
+              <div class="w-9 h-9 bg-tertiary-100 rounded-large flex items-center justify-center group-hover:bg-tertiary-600 transition-all duration-300 shrink-0">
+                <i data-lucide="phone" class="w-4 h-4 text-tertiary-600 group-hover:text-white transition-colors"></i>
+              </div>
+              <div>
+                <p class="text-xs text-neutral-400 font-medium">Phone</p>
+                <p class="text-sm font-semibold text-neutral-800">+1 947-201-9759</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 group">
+              <div class="w-9 h-9 bg-primary-100 rounded-large flex items-center justify-center group-hover:bg-primary-600 transition-all duration-300 shrink-0">
+                <i data-lucide="briefcase" class="w-4 h-4 text-primary-600 group-hover:text-white transition-colors"></i>
+              </div>
+              <div>
+                <p class="text-xs text-neutral-400 font-medium">Status</p>
+                <p class="text-sm font-semibold text-tertiary-600">Open to Work</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <a href="image/Pragati_Gunai.pdf" target="_blank" class="px-6 py-3 bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-bold rounded-small hover:opacity-90 transition-all hover:scale-105 shadow-custom text-sm flex items-center gap-2">
+              <i data-lucide="download" class="w-4 h-4"></i>Download CV
+            </a>
+            <a href="#contact" class="px-6 py-3 border-2 border-primary-600 text-primary-600 font-bold rounded-small hover:bg-primary-600 hover:text-white transition-all hover:scale-105 text-sm flex items-center gap-2">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>Let's Talk
+            </a>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <div class="relative">
+            <img src="image/Aboutus.png" alt="Developer workspace" class="w-full rounded-large shadow-custom-hover object-cover h-80">
+            <div class="absolute -bottom-5 -left-5 bg-white rounded-large p-5 shadow-custom border border-neutral-100 float-anim">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-large flex items-center justify-center">
+                  <i data-lucide="trophy" class="w-6 h-6 text-white"></i>
+                </div>
+                <div>
+                  <p class="font-heading text-xl font-black text-neutral-900">4+</p>
+                  <p class="text-xs text-neutral-500">Years of Experience</p>
+                </div>
+              </div>
+            </div>
+            <div class="absolute -top-5 -right-5 bg-white rounded-large p-4 shadow-custom border border-neutral-100 float2">
+              <div class="flex items-center gap-2">
+                <div class="w-3 h-3 bg-tertiary-500 rounded-full dot-glow"></div>
+                <span class="text-xs font-bold text-neutral-800">Available Now</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 bg-background-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 reveal">
+        <span class="text-sm font-bold text-primary-600 uppercase tracking-widest">Technical Expertise</span>
+        <h2 class="font-heading text-4xl font-black text-neutral-900 mt-2 mb-3">My Skills</h2>
+        <div class="mx-auto mt-3 h-1.5 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full title-line"></div>
+        <p class="text-neutral-500 mt-5 max-w-xl mx-auto">A comprehensive toolkit built over years of hands-on development across diverse projects and industries.</p>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-10">
+        <!-- Skill Bars -->
+        <div class="reveal-left space-y-5" id="skills-container">
+          <div class="skill-item">
+            <div class="flex justify-between mb-2">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 bg-primary-100 rounded-small flex items-center justify-center">
+                  <i data-lucide="code-2" class="w-3.5 h-3.5 text-primary-600"></i>
+                </div>
+                <span class="text-sm font-bold text-neutral-800">WordPress/CMS</span>
+              </div>
+              <span class="text-sm font-bold text-primary-600">90%</span>
+            </div>
+            <div class="h-2.5 bg-neutral-200 rounded-full overflow-hidden">
+              <div class="skill-bar-fill h-full bg-gradient-to-r from-primary-500 to-primary-700 rounded-full" style="--skill-width:90%"></div>
+            </div>
+          </div>
+             <div class="skill-item">
+            <div class="flex justify-between mb-2">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 bg-secondary-100 rounded-small flex items-center justify-center">
+                  <i data-lucide="cloud" class="w-3.5 h-3.5 text-secondary-600"></i>
+                </div>
+                <span class="text-sm font-bold text-neutral-800">Figma/Hunspot</span>
+              </div>
+              <span class="text-sm font-bold text-secondary-600">80%</span>
+            </div>
+            <div class="h-2.5 bg-neutral-200 rounded-full overflow-hidden">
+              <div class="skill-bar-fill h-full bg-gradient-to-r from-secondary-400 to-tertiary-500 rounded-full" style="--skill-width:80%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="flex justify-between mb-2">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 bg-secondary-100 rounded-small flex items-center justify-center">
+                  <i data-lucide="layers" class="w-3.5 h-3.5 text-secondary-600"></i>
+                </div>
+                <span class="text-sm font-bold text-neutral-800">Angular / JavaScript</span>
+              </div>
+              <span class="text-sm font-bold text-secondary-600">88%</span>
+            </div>
+            <div class="h-2.5 bg-neutral-200 rounded-full overflow-hidden">
+              <div class="skill-bar-fill h-full bg-gradient-to-r from-secondary-500 to-secondary-700 rounded-full" style="--skill-width:88%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="flex justify-between mb-2">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 bg-tertiary-100 rounded-small flex items-center justify-center">
+                  <i data-lucide="database" class="w-3.5 h-3.5 text-tertiary-600"></i>
+                </div>
+                <span class="text-sm font-bold text-neutral-800">SQL / ETL</span>
+              </div>
+              <span class="text-sm font-bold text-tertiary-600">85%</span>
+            </div>
+            <div class="h-2.5 bg-neutral-200 rounded-full overflow-hidden">
+              <div class="skill-bar-fill h-full bg-gradient-to-r from-tertiary-500 to-tertiary-700 rounded-full" style="--skill-width:85%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="flex justify-between mb-2">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 bg-primary-100 rounded-small flex items-center justify-center">
+                  <i data-lucide="globe" class="w-3.5 h-3.5 text-primary-600"></i>
+                </div>
+                <span class="text-sm font-bold text-neutral-800">HTML / CSS / PHP</span>
+              </div>
+              <span class="text-sm font-bold text-primary-600">92%</span>
+            </div>
+            <div class="h-2.5 bg-neutral-200 rounded-full overflow-hidden">
+              <div class="skill-bar-fill h-full bg-gradient-to-r from-primary-400 to-secondary-500 rounded-full" style="--skill-width:92%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="flex justify-between mb-2">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 bg-secondary-100 rounded-small flex items-center justify-center">
+                  <i data-lucide="cloud" class="w-3.5 h-3.5 text-secondary-600"></i>
+                </div>
+                <span class="text-sm font-bold text-neutral-800">AWS Cloud / DevOps</span>
+              </div>
+              <span class="text-sm font-bold text-secondary-600">80%</span>
+            </div>
+            <div class="h-2.5 bg-neutral-200 rounded-full overflow-hidden">
+              <div class="skill-bar-fill h-full bg-gradient-to-r from-secondary-400 to-tertiary-500 rounded-full" style="--skill-width:80%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="flex justify-between mb-2">
+              <div class="flex items-center gap-2">
+                <div class="w-7 h-7 bg-tertiary-100 rounded-small flex items-center justify-center">
+                  <i data-lucide="layout" class="w-3.5 h-3.5 text-tertiary-600"></i>
+                </div>
+                <span class="text-sm font-bold text-neutral-800">Asp.net/C#</span>
+              </div>
+              <span class="text-sm font-bold text-tertiary-600">82%</span>
+            </div>
+            <div class="h-2.5 bg-neutral-200 rounded-full overflow-hidden">
+              <div class="skill-bar-fill h-full bg-gradient-to-r from-tertiary-400 to-primary-500 rounded-full" style="--skill-width:82%"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Tech Tags -->
+        <div class="reveal-right">
+          <h3 class="font-heading text-lg font-bold text-neutral-800 mb-5">Technologies &amp; Tools</h3>
+          <div class="flex flex-wrap gap-3 mb-8">
+            <span class="tag-hover px-4 py-2 bg-primary-50 border border-primary-200 text-primary-700 text-sm font-semibold rounded-small cursor-pointer">WordPress</span>
+            <span class="tag-hover px-4 py-2 bg-primary-50 border border-primary-200 text-primary-700 text-sm font-semibold rounded-small cursor-pointer">UI/UX</span>
+            <span class="tag-hover px-4 py-2 bg-primary-50 border border-primary-200 text-primary-700 text-sm font-semibold rounded-small cursor-pointer">Figma</span>
+            <span class="tag-hover px-4 py-2 bg-secondary-50 border border-secondary-200 text-secondary-700 text-sm font-semibold rounded-small cursor-pointer">Angular/PHP</span>
+            <span class="tag-hover px-4 py-2 bg-tertiary-50 border border-tertiary-200 text-tertiary-700 text-sm font-semibold rounded-small cursor-pointer">JavaScript</span>
+            <span class="tag-hover px-4 py-2 bg-primary-50 border border-primary-200 text-primary-700 text-sm font-semibold rounded-small cursor-pointer">C# / .NET</span>
+            <span class="tag-hover px-4 py-2 bg-neutral-100 border border-neutral-300 text-neutral-700 text-sm font-semibold rounded-small cursor-pointer">PHP</span>
+            <span class="tag-hover px-4 py-2 bg-secondary-50 border border-secondary-200 text-secondary-700 text-sm font-semibold rounded-small cursor-pointer">Python</span>
+            <span class="tag-hover px-4 py-2 bg-tertiary-50 border border-tertiary-200 text-tertiary-700 text-sm font-semibold rounded-small cursor-pointer">SQL Server</span>
+            <span class="tag-hover px-4 py-2 bg-primary-50 border border-primary-200 text-primary-700 text-sm font-semibold rounded-small cursor-pointer">MySQL</span>
+            <span class="tag-hover px-4 py-2 bg-neutral-100 border border-neutral-300 text-neutral-700 text-sm font-semibold rounded-small cursor-pointer">AWS</span>
+            <span class="tag-hover px-4 py-2 bg-secondary-50 border border-secondary-200 text-secondary-700 text-sm font-semibold rounded-small cursor-pointer">REST APIs</span>
+            <span class="tag-hover px-4 py-2 bg-tertiary-50 border border-tertiary-200 text-tertiary-700 text-sm font-semibold rounded-small cursor-pointer">CI/CD</span>
+            <span class="tag-hover px-4 py-2 bg-primary-50 border border-primary-200 text-primary-700 text-sm font-semibold rounded-small cursor-pointer">Docker</span>
+            <span class="tag-hover px-4 py-2 bg-neutral-100 border border-neutral-300 text-neutral-700 text-sm font-semibold rounded-small cursor-pointer">Git</span>
+            <span class="tag-hover px-4 py-2 bg-secondary-50 border border-secondary-200 text-secondary-700 text-sm font-semibold rounded-small cursor-pointer">AI</span>
+            <span class="tag-hover px-4 py-2 bg-tertiary-50 border border-tertiary-200 text-tertiary-700 text-sm font-semibold rounded-small cursor-pointer">HTML/CSS</span>
+            <span class="tag-hover px-4 py-2 bg-primary-50 border border-primary-200 text-primary-700 text-sm font-semibold rounded-small cursor-pointer">Microservices</span>
+            <span class="tag-hover px-4 py-2 bg-neutral-100 border border-neutral-300 text-neutral-700 text-sm font-semibold rounded-small cursor-pointer">Agile/Scrum</span>
+           
+          </div>
+          <!-- Soft skills -->
+          <h3 class="font-heading text-lg font-bold text-neutral-800 mb-4">Core Strengths</h3>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="flex items-center gap-2 p-3 bg-white rounded-large border border-neutral-200 shadow-sm card-hover">
+              <i data-lucide="zap" class="w-4 h-4 text-primary-500 shrink-0"></i>
+              <span class="text-xs font-semibold text-neutral-700">Problem Solving</span>
+            </div>
+            <div class="flex items-center gap-2 p-3 bg-white rounded-large border border-neutral-200 shadow-sm card-hover">
+              <i data-lucide="users" class="w-4 h-4 text-secondary-500 shrink-0"></i>
+              <span class="text-xs font-semibold text-neutral-700">Team Collaboration</span>
+            </div>
+            <div class="flex items-center gap-2 p-3 bg-white rounded-large border border-neutral-200 shadow-sm card-hover">
+              <i data-lucide="refresh-cw" class="w-4 h-4 text-tertiary-500 shrink-0"></i>
+              <span class="text-xs font-semibold text-neutral-700">Agile Practices</span>
+            </div>
+            <div class="flex items-center gap-2 p-3 bg-white rounded-large border border-neutral-200 shadow-sm card-hover">
+              <i data-lucide="shield" class="w-4 h-4 text-primary-500 shrink-0"></i>
+              <span class="text-xs font-semibold text-neutral-700">Security Focus</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 bg-background-100 border-t border-neutral-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 reveal">
+        <span class="text-sm font-bold text-secondary-600 uppercase tracking-widest">Work History</span>
+        <h2 class="font-heading text-4xl font-black text-neutral-900 mt-2 mb-3">Professional Experience</h2>
+        <div class="mx-auto mt-3 h-1.5 bg-gradient-to-r from-secondary-500 to-primary-500 rounded-full title-line"></div>
+      </div>
+      <div class="max-w-3xl mx-auto space-y-8">
+        <!-- Job 1 -->
+        <div class="reveal delay-100 timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="bg-white rounded-large border border-neutral-200 p-7 shadow-sm card-hover shimmer-card">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
+              <div>
+                <h3 class="font-heading text-lg font-bold text-neutral-900">Software Developer</h3>
+                <div class="flex items-center gap-2 mt-1">
+                  <div class="w-6 h-6 bg-secondary-100 rounded-small flex items-center justify-center">
+                    <i data-lucide="building-2" class="w-3 h-3 text-secondary-600"></i>
+                  </div>
+                  <span class="text-sm font-semibold text-secondary-600">University of Michigan, USA</span>
+                </div>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-secondary-50 border border-secondary-200 text-secondary-700 text-xs font-bold rounded-small shrink-0">
+                <i data-lucide="calendar" class="w-3 h-3"></i>2024 – 2025
+              </span>
+            </div>
+            <ul class="space-y-2.5">
+              <li class="flex items-start gap-2.5 text-sm text-neutral-600"><i data-lucide="chevron-right" class="w-4 h-4 text-primary-500 shrink-0 mt-0.5"></i>Developed and maintained scalable WordPress-based research platforms with custom themes, plugins, and secure collaboration portals.</li>
+              <li class="flex items-start gap-2.5 text-sm text-neutral-600"><i data-lucide="chevron-right" class="w-4 h-4 text-primary-500 shrink-0 mt-0.5"></i>Built dynamic data visualization and collection modules using HTML, CSS, JavaScript, PHP, Angular, and SQL integrations.</li>
+              <li class="flex items-start gap-2.5 text-sm text-neutral-600"><i data-lucide="chevron-right" class="w-4 h-4 text-primary-500 shrink-0 mt-0.5"></i>Integrated Web APIs, university systems, and AWS infrastructure to ensure secure, high-performance deployments.</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-5">
+              <span class="px-2.5 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-small">Wordpress/CMS</span>
+              <span class="px-2.5 py-1 bg-secondary-50 text-secondary-700 text-xs font-semibold rounded-small">PHP</span>
+              <span class="px-2.5 py-1 bg-tertiary-50 text-tertiary-700 text-xs font-semibold rounded-small">JavaScript/C#</span>
+              <span class="px-2.5 py-1 bg-neutral-100 text-neutral-700 text-xs font-semibold rounded-small">SQL</span>
+              <span class="px-2.5 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-small">REST APIs</span>
+            </div>
+          </div>
+        </div>
+        <!-- Job 2 -->
+        <div class="reveal delay-200 timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="bg-white rounded-large border border-neutral-200 p-7 shadow-sm card-hover shimmer-card">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
+              <div>
+                <h3 class="font-heading text-lg font-bold text-neutral-900">Software Developer</h3>
+                <div class="flex items-center gap-2 mt-1">
+                  <div class="w-6 h-6 bg-primary-100 rounded-small flex items-center justify-center">
+                    <i data-lucide="building-2" class="w-3 h-3 text-primary-600"></i>
+                  </div>
+                  <span class="text-sm font-semibold text-primary-600">Paktolus Solutions LLC, India</span>
+                </div>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary-50 border border-primary-200 text-primary-700 text-xs font-bold rounded-small shrink-0">
+                <i data-lucide="calendar" class="w-3 h-3"></i>2021 – 2022
+              </span>
+            </div>
+            <ul class="space-y-2.5">
+              <li class="flex items-start gap-2.5 text-sm text-neutral-600"><i data-lucide="chevron-right" class="w-4 h-4 text-primary-500 shrink-0 mt-0.5"></i>Developed insurance-focused web platforms using WordPress, Shopify, PHP, React, Angular, and Bootstrap.</li>
+              <li class="flex items-start gap-2.5 text-sm text-neutral-600"><i data-lucide="chevron-right" class="w-4 h-4 text-primary-500 shrink-0 mt-0.5"></i>Designed custom WordPress themes/plugins and WooCommerce integrations, improving operational efficiency by 25%.</li>
+              <li class="flex items-start gap-2.5 text-sm text-neutral-600"><i data-lucide="chevron-right" class="w-4 h-4 text-primary-500 shrink-0 mt-0.5"></i>Integrated RESTful APIs and AWS services to enable real-time policy updates and claims tracking.</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-5">
+              <span class="px-2.5 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-small">Wordpress</span>
+              <span class="px-2.5 py-1 bg-secondary-50 text-secondary-700 text-xs font-semibold rounded-small">AWS</span>
+              <span class="px-2.5 py-1 bg-tertiary-50 text-tertiary-700 text-xs font-semibold rounded-small">CI/CD</span>
+              <span class="px-2.5 py-1 bg-neutral-100 text-neutral-700 text-xs font-semibold rounded-small">NET/C#</span>
+              <span class="px-2.5 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-small">DevOps</span>
+            </div>
+          </div>
+        </div>
+        <!-- Job 3 -->
+        <div class="reveal delay-300 timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="bg-white rounded-large border border-neutral-200 p-7 shadow-sm card-hover shimmer-card">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
+              <div>
+                <h3 class="font-heading text-lg font-bold text-neutral-900">Software Developer</h3>
+                <div class="flex items-center gap-2 mt-1">
+                  <div class="w-6 h-6 bg-tertiary-100 rounded-small flex items-center justify-center">
+                    <i data-lucide="building-2" class="w-3 h-3 text-tertiary-600"></i>
+                  </div>
+                  <span class="text-sm font-semibold text-tertiary-600">Jain Investment Pvt. Ltd, India</span>
+                </div>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-tertiary-50 border border-tertiary-200 text-tertiary-700 text-xs font-bold rounded-small shrink-0">
+                <i data-lucide="calendar" class="w-3 h-3"></i>2018 – 2021
+              </span>
+            </div>
+            <ul class="space-y-2.5">
+              <li class="flex items-start gap-2.5 text-sm text-neutral-600"><i data-lucide="chevron-right" class="w-4 h-4 text-primary-500 shrink-0 mt-0.5"></i>Built dynamic UIs using HTML, AngularJS, PHP, and Python for financial applications.</li>
+              <li class="flex items-start gap-2.5 text-sm text-neutral-600"><i data-lucide="chevron-right" class="w-4 h-4 text-primary-500 shrink-0 mt-0.5"></i>Developed and integrated REST APIs to increase user engagement through dynamic features.</li>
+              <li class="flex items-start gap-2.5 text-sm text-neutral-600"><i data-lucide="chevron-right" class="w-4 h-4 text-primary-500 shrink-0 mt-0.5"></i>Improved form validation, data security, and overall application performance.</li>
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-5">
+              <span class="px-2.5 py-1 bg-tertiary-50 text-tertiary-700 text-xs font-semibold rounded-small">AngularJS</span>
+              <span class="px-2.5 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-small">PHP</span>
+              <span class="px-2.5 py-1 bg-secondary-50 text-secondary-700 text-xs font-semibold rounded-small">Python</span>
+              <span class="px-2.5 py-1 bg-neutral-100 text-neutral-700 text-xs font-semibold rounded-small">REST APIs</span>
+              <span class="px-2.5 py-1 bg-tertiary-50 text-tertiary-700 text-xs font-semibold rounded-small">HTML/CSS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-background-50 border-t border-neutral-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 reveal">
+        <span class="text-sm font-bold text-primary-600 uppercase tracking-widest">Portfolio</span>
+        <h2 class="font-heading text-4xl font-black text-neutral-900 mt-2 mb-3">Key Projects</h2>
+        <div class="mx-auto mt-3 h-1.5 bg-gradient-to-r from-primary-500 to-tertiary-500 rounded-full title-line"></div>
+        <p class="text-neutral-500 mt-5 max-w-xl mx-auto">A selection of projects that showcase my technical range — from AI-powered tools to enterprise software systems.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Project 1 -->
+        <div class="reveal delay-100 bg-white rounded-large border border-neutral-200 shadow-sm card-hover shimmer-card overflow-hidden group">
+          <div class="h-44 bg-gradient-to-br from-tertiary-600 to-tertiary-900 relative overflow-hidden">
+            <img src="image/proj1.png" alt="Stock Prediction" class="w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-large flex items-center justify-center border border-white/30">
+                <i data-lucide="trending-up" class="w-7 h-7 text-white"></i>
+              </div>
+            </div>
+            <div class="absolute top-3 right-3 px-2.5 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold rounded-small border border-white/20">Wordpress/CMS</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading text-base font-bold text-neutral-900 mb-2">University research Project</h3>
+            <p class="text-neutral-500 text-sm leading-relaxed mb-4">Developed and maintained a university search website using Wordpress, PHP implementing dynamic filtering, optimized database queries, and responsive UI to improve search performance and user experience.</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="tag-hover px-2 py-1 bg-tertiary-50 text-tertiary-700 text-xs font-semibold rounded-small">WordPress</span>
+              <span class="tag-hover px-2 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-small">Figma/ CMS</span>
+              <span class="tag-hover px-2 py-1 bg-neutral-100 text-neutral-700 text-xs font-semibold rounded-small">HTML/CSS</span>
+            </div>
+            <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-tertiary-600 hover:text-tertiary-700 transition-colors hover-underline">
+              View Project <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="reveal delay-200 bg-white rounded-large border border-neutral-200 shadow-sm card-hover shimmer-card overflow-hidden group">
+          <div class="h-44 bg-gradient-to-br from-primary-600 to-primary-900 relative overflow-hidden">
+            <img src="image/proj2.png" alt="Insurance Software" class="w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-large flex items-center justify-center border border-white/30">
+                <i data-lucide="shield-check" class="w-7 h-7 text-white"></i>
+              </div>
+            </div>
+            <div class="absolute top-3 right-3 px-2.5 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold rounded-small border border-white/20">Enterprise</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading text-base font-bold text-neutral-900 mb-2">Insurance Software</h3>
+            <p class="text-neutral-500 text-sm leading-relaxed mb-4">Multiple Policy services and risk management system with automated workflows, client dashboards, and real-time analytics.</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="tag-hover px-2 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-small">Wordpress</span>
+              <span class="tag-hover px-2 py-1 bg-secondary-50 text-secondary-700 text-xs font-semibold rounded-small">C#/Angular</span>
+              <span class="tag-hover px-2 py-1 bg-neutral-100 text-neutral-700 text-xs font-semibold rounded-small">SQL</span>
+            </div>
+            <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors hover-underline">
+              View Project <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="reveal delay-300 bg-white rounded-large border border-neutral-200 shadow-sm card-hover shimmer-card overflow-hidden group">
+          <div class="h-44 bg-gradient-to-br from-secondary-600 to-secondary-900 relative overflow-hidden">
+            <img src="image/proj3.png" alt="Client Portfolio" class="w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-large flex items-center justify-center border border-white/30">
+                <i data-lucide="bar-chart-2" class="w-7 h-7 text-white"></i>
+              </div>
+            </div>
+            <div class="absolute top-3 right-3 px-2.5 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold rounded-small border border-white/20">Analytics</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading text-base font-bold text-neutral-900 mb-2">Client Portfolio Dashboard</h3>
+            <p class="text-neutral-500 text-sm leading-relaxed mb-4">Insurance client analytics dashboard with interactive charts, KPI tracking, and automated reporting.</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="tag-hover px-2 py-1 bg-secondary-50 text-secondary-700 text-xs font-semibold rounded-small">WordPress/Figma</span>
+              <span class="tag-hover px-2 py-1 bg-secondary-50 text-secondary-700 text-xs font-semibold rounded-small">Angular</span>
+              <span class="tag-hover px-2 py-1 bg-tertiary-50 text-tertiary-700 text-xs font-semibold rounded-small">JavaScript</span>
+              <span class="tag-hover px-2 py-1 bg-neutral-100 text-neutral-700 text-xs font-semibold rounded-small">REST API</span>
+            </div>
+            <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-secondary-600 hover:text-secondary-700 transition-colors hover-underline">
+              View Project <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Project 4 -->
+        <div class="reveal delay-400 bg-white rounded-large border border-neutral-200 shadow-sm card-hover shimmer-card overflow-hidden group">
+          <div class="h-44 bg-gradient-to-br from-primary-700 to-tertiary-700 relative overflow-hidden">
+            <img src="image/proj4.png" alt="Fraud Detection" class="w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-large flex items-center justify-center border border-white/30">
+                <i data-lucide="alert-triangle" class="w-7 h-7 text-white"></i>
+              </div>
+            </div>
+            <div class="absolute top-3 right-3 px-2.5 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold rounded-small border border-white/20">Security</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading text-base font-bold text-neutral-900 mb-2">Credit Card Fraud Detection</h3>
+            <p class="text-neutral-500 text-sm leading-relaxed mb-4">ML-powered fraud detection system that identifies suspicious transactions in real-time with 97% accuracy.</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="tag-hover px-2 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-small">Python</span>
+              <span class="tag-hover px-2 py-1 bg-secondary-50 text-secondary-700 text-xs font-semibold rounded-small">Scikit-learn</span>
+              <span class="tag-hover px-2 py-1 bg-neutral-100 text-neutral-700 text-xs font-semibold rounded-small">SQL</span>
+            </div>
+            <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors hover-underline">
+              View Project <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+        <!-- Project 5 -->
+        <div class="reveal delay-500 bg-white rounded-large border border-neutral-200 shadow-sm card-hover shimmer-card overflow-hidden group">
+          <div class="h-44 bg-gradient-to-br from-secondary-700 to-primary-800 relative overflow-hidden">
+            <img src="image/proj5.png" alt="Object Caption" class="w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-large flex items-center justify-center border border-white/30">
+                <i data-lucide="image" class="w-7 h-7 text-white"></i>
+              </div>
+            </div>
+            <div class="absolute top-3 right-3 px-2.5 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold rounded-small border border-white/20">AI / NLP</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading text-base font-bold text-neutral-900 mb-2">Object Caption Generation</h3>
+            <p class="text-neutral-500 text-sm leading-relaxed mb-4">AI image captioning system using deep learning to automatically generate descriptive captions for images.</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="tag-hover px-2 py-1 bg-secondary-50 text-secondary-700 text-xs font-semibold rounded-small">Python</span>
+              <span class="tag-hover px-2 py-1 bg-tertiary-50 text-tertiary-700 text-xs font-semibold rounded-small">Deep Learning</span>
+              <span class="tag-hover px-2 py-1 bg-neutral-100 text-neutral-700 text-xs font-semibold rounded-small">NLP</span>
+            </div>
+            <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-secondary-600 hover:text-secondary-700 transition-colors hover-underline">
+              View Project <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+        <!-- Project 6 -->
+        <div class="reveal delay-600 bg-white rounded-large border border-neutral-200 shadow-sm card-hover shimmer-card overflow-hidden group">
+          <div class="h-44 bg-gradient-to-br from-tertiary-700 to-secondary-800 relative overflow-hidden">
+            <img src="image/proj6.png" alt="AWS Project" class="w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-large flex items-center justify-center border border-white/30">
+                <i data-lucide="cloud" class="w-7 h-7 text-white"></i>
+              </div>
+            </div>
+            <div class="absolute top-3 right-3 px-2.5 py-1 bg-white/20 backdrop-blur-sm text-white text-xs font-bold rounded-small border border-white/20">Cloud</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-heading text-base font-bold text-neutral-900 mb-2">AWS Cloud Solution</h3>
+            <p class="text-neutral-500 text-sm leading-relaxed mb-4">Scalable cloud architecture using AWS services including Lambda, S3, RDS, and CloudFormation for enterprise deployment.</p>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              <span class="tag-hover px-2 py-1 bg-tertiary-50 text-tertiary-700 text-xs font-semibold rounded-small">AWS</span>
+              <span class="tag-hover px-2 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-small">Lambda</span>
+              <span class="tag-hover px-2 py-1 bg-neutral-100 text-neutral-700 text-xs font-semibold rounded-small">DevOps</span>
+            </div>
+            <a href="#" class="inline-flex items-center gap-1.5 text-sm font-semibold text-tertiary-600 hover:text-tertiary-700 transition-colors hover-underline">
+              View Project <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="py-20 bg-neutral-900 relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <div class="particle w-2 h-2 bg-primary-400/30" style="left:10%;top:80%;animation-duration:7s;"></div>
+      <div class="particle w-3 h-3 bg-secondary-400/20" style="left:60%;top:85%;animation-duration:9s;animation-delay:2s;"></div>
+      <div class="particle w-2 h-2 bg-tertiary-400/25" style="left:85%;top:75%;animation-duration:6s;animation-delay:1s;"></div>
+      <div class="blob absolute w-80 h-80 bg-primary-900/40 rounded-full" style="top:-80px;right:-80px;"></div>
+      <div class="blob absolute w-56 h-56 bg-secondary-900/30 rounded-full" style="bottom:-40px;left:-40px;animation-delay:4s;"></div>
+      <div class="absolute inset-0 opacity-5" style="background-image:linear-gradient(rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px);background-size:60px 60px;"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-14 reveal">
+        <span class="text-sm font-bold text-primary-400 uppercase tracking-widest">Academic Background</span>
+        <h2 class="font-heading text-4xl font-black text-white mt-2 mb-3">Education</h2>
+        <div class="mx-auto mt-3 h-1.5 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full title-line"></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div class="reveal delay-100 bg-white/10 backdrop-blur-sm rounded-large border border-white/15 p-8 card-hover border-glow">
+          <div class="flex items-start gap-4 mb-5">
+            <div class="w-14 h-14 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-large flex items-center justify-center shrink-0 shadow-custom">
+              <i data-lucide="graduation-cap" class="w-7 h-7 text-white"></i>
+            </div>
+            <div>
+              <h3 class="font-heading text-lg font-bold text-white">Master of Science</h3>
+              <p class="text-primary-300 font-semibold text-sm">Computer Science</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 mb-3">
+            <i data-lucide="building-2" class="w-4 h-4 text-neutral-400 shrink-0"></i>
+            <span class="text-neutral-300 text-sm font-medium">University of Michigan, USA</span>
+          </div>
+          <div class="flex items-center gap-2 mb-5">
+            <i data-lucide="calendar" class="w-4 h-4 text-neutral-400 shrink-0"></i>
+            <span class="text-neutral-300 text-sm font-medium">2023 – 2024</span>
+          </div>
+          <p class="text-neutral-400 text-sm leading-relaxed">Advanced studies in software engineering, machine learning, cloud computing, and distributed systems with research focus on web technologies.</p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 bg-primary-900/50 border border-primary-700/50 text-primary-300 text-xs font-semibold rounded-small">Machine Learning</span>
+            <span class="px-2.5 py-1 bg-secondary-900/50 border border-secondary-700/50 text-secondary-300 text-xs font-semibold rounded-small">Cloud Computing</span>
+            <span class="px-2.5 py-1 bg-tertiary-900/50 border border-tertiary-700/50 text-tertiary-300 text-xs font-semibold rounded-small">Distributed Systems</span>
+          </div>
+        </div>
+        <div class="reveal delay-200 bg-white/10 backdrop-blur-sm rounded-large border border-white/15 p-8 card-hover border-glow" style="animation-delay:1.5s;">
+          <div class="flex items-start gap-4 mb-5">
+            <div class="w-14 h-14 bg-gradient-to-br from-tertiary-500 to-secondary-500 rounded-large flex items-center justify-center shrink-0 shadow-custom">
+              <i data-lucide="book-open" class="w-7 h-7 text-white"></i>
+            </div>
+            <div>
+              <h3 class="font-heading text-lg font-bold text-white">Bachelor of Science</h3>
+              <p class="text-tertiary-300 font-semibold text-sm">Computer Science</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 mb-3">
+            <i data-lucide="building-2" class="w-4 h-4 text-neutral-400 shrink-0"></i>
+            <span class="text-neutral-300 text-sm font-medium">University of Mumbai, India</span>
+          </div>
+          <div class="flex items-center gap-2 mb-5">
+            <i data-lucide="calendar" class="w-4 h-4 text-neutral-400 shrink-0"></i>
+            <span class="text-neutral-300 text-sm font-medium">2015 – 2018</span>
+          </div>
+          <p class="text-neutral-400 text-sm leading-relaxed">Foundation in computer science fundamentals, data structures, algorithms, database management, and software engineering principles.</p>
+          <div class="mt-5 flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 bg-tertiary-900/50 border border-tertiary-700/50 text-tertiary-300 text-xs font-semibold rounded-small">Data Structures</span>
+            <span class="px-2.5 py-1 bg-secondary-900/50 border border-secondary-700/50 text-secondary-300 text-xs font-semibold rounded-small">Algorithms</span>
+            <span class="px-2.5 py-1 bg-primary-900/50 border border-primary-700/50 text-primary-300 text-xs font-semibold rounded-small">DBMS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-background-100 border-t border-neutral-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 reveal">
+        <span class="text-sm font-bold text-tertiary-600 uppercase tracking-widest">What I Do</span>
+        <h2 class="font-heading text-4xl font-black text-neutral-900 mt-2 mb-3">Services Offered</h2>
+        <div class="mx-auto mt-3 h-1.5 bg-gradient-to-r from-tertiary-500 to-primary-500 rounded-full title-line"></div>
+        <p class="text-neutral-500 mt-5 max-w-xl mx-auto">From concept to deployment, I offer end-to-end development services tailored to your business needs.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="reveal delay-100 service-card bg-white rounded-large p-7 border border-neutral-200 shadow-sm card-hover shimmer-card text-center group">
+          <div class="service-card-icon w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-700 rounded-large flex items-center justify-center mx-auto mb-5 shadow-custom">
+            <i data-lucide="code-2" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="font-heading text-base font-bold text-neutral-900 mb-3">Software Development</h3>
+          <p class="text-neutral-500 text-sm leading-relaxed mb-5">Full-stack web application development using .NET, Angular, PHP, and modern JavaScript frameworks.</p>
+          <div class="flex flex-wrap gap-1.5 justify-center">
+            <span class="px-2 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-small">.NET</span>
+            <span class="px-2 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-small">Angular</span>
+            <span class="px-2 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-small">PHP</span>
+          </div>
+        </div>
+        <div class="reveal delay-200 service-card bg-white rounded-large p-7 border border-neutral-200 shadow-sm card-hover shimmer-card text-center group">
+          <div class="service-card-icon w-16 h-16 bg-gradient-to-br from-secondary-500 to-secondary-700 rounded-large flex items-center justify-center mx-auto mb-5 shadow-custom">
+            <i data-lucide="layout-dashboard" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="font-heading text-base font-bold text-neutral-900 mb-3">UI/UX Design</h3>
+          <p class="text-neutral-500 text-sm leading-relaxed mb-5">Crafting intuitive, responsive user interfaces with a focus on accessibility, performance, and user experience.</p>
+          <div class="flex flex-wrap gap-1.5 justify-center">
+            <span class="px-2 py-1 bg-secondary-50 text-secondary-700 text-xs font-semibold rounded-small">HTML/CSS</span>
+            <span class="px-2 py-1 bg-secondary-50 text-secondary-700 text-xs font-semibold rounded-small">Responsive</span>
+          </div>
+        </div>
+        <div class="reveal delay-300 service-card bg-white rounded-large p-7 border border-neutral-200 shadow-sm card-hover shimmer-card text-center group">
+          <div class="service-card-icon w-16 h-16 bg-gradient-to-br from-tertiary-500 to-tertiary-700 rounded-large flex items-center justify-center mx-auto mb-5 shadow-custom">
+            <i data-lucide="layout" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="font-heading text-base font-bold text-neutral-900 mb-3">WordPress Development</h3>
+          <p class="text-neutral-500 text-sm leading-relaxed mb-5">Custom WordPress themes, plugins, and CMS solutions for businesses of all sizes with SEO optimization.</p>
+          <div class="flex flex-wrap gap-1.5 justify-center">
+            <span class="px-2 py-1 bg-tertiary-50 text-tertiary-700 text-xs font-semibold rounded-small">WordPress</span>
+            <span class="px-2 py-1 bg-tertiary-50 text-tertiary-700 text-xs font-semibold rounded-small">CMS</span>
+          </div>
+        </div>
+        <div class="reveal delay-400 service-card bg-white rounded-large p-7 border border-neutral-200 shadow-sm card-hover shimmer-card text-center group">
+          <div class="service-card-icon w-16 h-16 bg-gradient-to-br from-primary-600 to-tertiary-600 rounded-large flex items-center justify-center mx-auto mb-5 shadow-custom">
+            <i data-lucide="database" class="w-8 h-8 text-white"></i>
+          </div>
+          <h3 class="font-heading text-base font-bold text-neutral-900 mb-3">SQL / ETL Development</h3>
+          <p class="text-neutral-500 text-sm leading-relaxed mb-5">Database design, optimization, and ETL pipeline development for efficient data integration and reporting.</p>
+          <div class="flex flex-wrap gap-1.5 justify-center">
+            <span class="px-2 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-small">SQL</span>
+            <span class="px-2 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-small">ETL</span>
+            <span class="px-2 py-1 bg-primary-50 text-primary-700 text-xs font-semibold rounded-small">Data</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-background-50 border-t border-neutral-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14 reveal">
+        <span class="text-sm font-bold text-primary-600 uppercase tracking-widest">Get In Touch</span>
+        <h2 class="font-heading text-4xl font-black text-neutral-900 mt-2 mb-3">Contact Me</h2>
+        <div class="mx-auto mt-3 h-1.5 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-full title-line"></div>
+        <p class="text-neutral-500 mt-5 max-w-xl mx-auto">Have a project in mind or want to discuss opportunities? I'd love to hear from you. Let's build something great together.</p>
+      </div>
+      <div class="grid lg:grid-cols-3 gap-8">
+        <div class="space-y-5">
+          <div class="reveal delay-100 bg-white rounded-large p-6 border border-neutral-200 shadow-sm card-hover group shimmer-card">
+            <div class="w-12 h-12 bg-primary-100 rounded-large flex items-center justify-center mb-4 group-hover:bg-primary-600 transition-all duration-300">
+              <i data-lucide="mail" class="w-6 h-6 text-primary-600 group-hover:text-white transition-colors icon-spin"></i>
+            </div>
+            <h4 class="font-heading text-sm font-bold text-neutral-900 mb-1">Email</h4>
+            <p class="text-neutral-400 text-xs mb-2">Drop me a message anytime</p>
+            <a href="mailto:pragatig@umich.edu" class="text-primary-600 font-semibold text-sm hover:text-primary-700 hover-underline">pragatig@umich.edu</a>
+          </div>
+          <div class="reveal delay-200 bg-white rounded-large p-6 border border-neutral-200 shadow-sm card-hover group shimmer-card">
+            <div class="w-12 h-12 bg-secondary-100 rounded-large flex items-center justify-center mb-4 group-hover:bg-secondary-600 transition-all duration-300">
+              <i data-lucide="phone" class="w-6 h-6 text-secondary-600 group-hover:text-white transition-colors icon-spin"></i>
+            </div>
+            <h4 class="font-heading text-sm font-bold text-neutral-900 mb-1">Phone</h4>
+            <p class="text-neutral-400 text-xs mb-2">Mon–Fri, 9am–6pm EST</p>
+            <a href="tel:+19472019759" class="text-secondary-600 font-semibold text-sm hover:text-secondary-700 hover-underline">+1 947-201-9759</a>
+          </div>
+          <div class="reveal delay-300 bg-white rounded-large p-6 border border-neutral-200 shadow-sm card-hover group shimmer-card">
+            <div class="w-12 h-12 bg-tertiary-100 rounded-large flex items-center justify-center mb-4 group-hover:bg-tertiary-600 transition-all duration-300">
+              <i data-lucide="map-pin" class="w-6 h-6 text-tertiary-600 group-hover:text-white transition-colors icon-spin"></i>
+            </div>
+            <h4 class="font-heading text-sm font-bold text-neutral-900 mb-1">Location</h4>
+            <p class="text-neutral-400 text-xs mb-2">Open to remote &amp; on-site</p>
+            <p class="text-neutral-700 font-semibold text-sm">Farmington Hills, MI 48335</p>
+          </div>
+        </div>
+        <!-- Contact Form -->
+        <div class="lg:col-span-2 reveal-right bg-white rounded-large border border-neutral-200 p-8 shadow-custom">
+          <h3 class="font-heading text-xl font-bold text-neutral-900 mb-2">Send Me a Message</h3>
+          <p class="text-neutral-500 text-sm mb-6">I typically respond within 24 hours.</p>
+          <form id="contact-form" class="space-y-4">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-neutral-600 mb-1.5">Your Name *</label>
+                <input type="text" placeholder="John Doe" class="w-full px-4 py-3 rounded-small border border-neutral-300 text-neutral-800 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all hover:border-neutral-400 bg-white">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-neutral-600 mb-1.5">Email Address *</label>
+                <input type="email" placeholder="john@example.com" class="w-full px-4 py-3 rounded-small border border-neutral-300 text-neutral-800 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all hover:border-neutral-400 bg-white">
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-neutral-600 mb-1.5">Subject</label>
+              <select class="w-full px-4 py-3 rounded-small border border-neutral-300 text-neutral-700 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all hover:border-neutral-400 bg-white">
+                <option>Job Opportunity</option>
+                <option>Project Collaboration</option>
+                <option>Freelance Work</option>
+                <option>General Inquiry</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-neutral-600 mb-1.5">Message *</label>
+              <textarea rows="5" placeholder="Tell me about your project or opportunity..." class="w-full px-4 py-3 rounded-small border border-neutral-300 text-neutral-800 text-sm focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none transition-all hover:border-neutral-400 resize-none bg-white"></textarea>
+            </div>
+            <button type="submit" id="contact-btn" class="w-full py-4 bg-gradient-to-r from-primary-600 to-secondary-600 hover:opacity-90 text-white font-bold rounded-small transition-all hover:scale-105 shadow-custom flex items-center justify-center gap-2 group">
+              <i data-lucide="send" class="w-5 h-5 icon-spin"></i>
+              <span id="contact-btn-text">Send Message</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-900 text-neutral-400 pt-12 pb-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-gradient-to-br from-primary-600 to-secondary-600 rounded-large flex items-center justify-center">
+            <span class="text-white font-heading font-black text-sm">PG</span>
+          </div>
+          <div>
+            <p class="font-heading text-lg font-bold text-white">Pragati Gunai</p>
+            <p class="text-xs text-neutral-500">Full Stack Software Developer</p>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <a href="mailto:pragatig@umich.edu" class="w-10 h-10 bg-neutral-800 hover:bg-primary-600 rounded-large flex items-center justify-center transition-all hover:scale-110">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+          </a>
+          <a href="tel:+19472019759" class="w-10 h-10 bg-neutral-800 hover:bg-secondary-600 rounded-large flex items-center justify-center transition-all hover:scale-110">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/pragati-gunai/" class="w-10 h-10 bg-neutral-800 hover:bg-primary-600 rounded-large flex items-center justify-center transition-all hover:scale-110">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+          </a>
+          <a href="https://github.com/PragatiGunai1097" class="w-10 h-10 bg-neutral-800 hover:bg-neutral-600 rounded-large flex items-center justify-center transition-all hover:scale-110">
+            <i data-lucide="github" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-neutral-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3">
+        <p class="text-sm">© 2026 Pragati Gunai. All rights reserved.</p>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="w-2 h-2 bg-tertiary-500 rounded-full dot-glow"></span>
+          <span>Available for new opportunities</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  
+<script src="https://unpkg.com/lucide@latest"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
